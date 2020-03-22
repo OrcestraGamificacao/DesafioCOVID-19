@@ -80,7 +80,7 @@ const ImageProgression = props =>
             <ImageLoader
                 style={styles.image, {width:size, height:size}}
                 source={imagem}/>
-            <Text style={styles.infoInfected}>Número de pessoas infectadas: </Text>
+            <Text style={styles.infoInfected}>Número de pessoas infectadas: {peopleInfected}</Text>
         </>
     );
 };
