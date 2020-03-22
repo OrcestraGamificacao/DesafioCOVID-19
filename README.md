@@ -9,13 +9,6 @@ As *branches* devem seguir o seguinte formato:
 RichPicture
 ```
 
-* O nome da *branch* deve possuir uma 'tag' que é o número da *issue*.
-
-<b>Exemplo:</b>
-```
-3RichPicture
-```
-
 * A *branch* deverá possuir o padrão CamelCase ```x-NomeDaBranch ```, em que o 'x' é o número da *issue*.
 
 <b>Exemplo:</b>
@@ -71,5 +64,3 @@ Co-authored-By: João Pedro <isudjoao@gmail.com>
 **Exemplo:**
 
 ```HOTFIX #02 Fix errors in document```
-
-​
