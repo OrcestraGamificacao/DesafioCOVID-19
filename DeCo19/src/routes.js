@@ -5,6 +5,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import {createStackNavigator } from '@react-navigation/stack';
 import { SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import Main from './pages/Main';
+import Maps from './pages/Maps';
 import Challenge from './pages/challenge';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -18,7 +19,7 @@ const Routes = () => (
         barStyle={{backgroundColor: '#fff'}}
         labeled={false}
       >
-      <Tab.Screen name="Covid" component={Main}
+      <Tab.Screen name="Covid" component={Maps}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="map-marker-outline" size={24} color={color}/>
