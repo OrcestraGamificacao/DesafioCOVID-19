@@ -8,8 +8,8 @@ assignees: ''
 ---
 
 ## Nome da Issue
-A issue deve ser criada com um nome simples e descritivo:
-- Descrição simples da tarefa a se realizar.
+A issue deve ser criada com o número da história de usuário,  para quem é aquela funcionalidade, o que é aquela funcionalidade e para que ela vai ser criado:
+- US00 - Eu, como usuário, desejo ter uma página de login para entrar na plataforma.
 
 ## Descrição da Issue
 Descrever a issue de forma objetiva, colocando quaisquer informações necessárias para a realização da mesma.
