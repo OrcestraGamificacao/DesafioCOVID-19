@@ -38,6 +38,7 @@ function Main({ navigation }) {
 
             <View style={styles.viewAtividades} >
                 <Dropdown
+                    dropdownPosition={-3.5}
                     onChangeText={(value) => changeDestino(value)}
                     label="Atividade"
                     data={dataDestino}
