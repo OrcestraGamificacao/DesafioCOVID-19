@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './styles';
 import ImageProgression from '../../components/imageProgression'
 
