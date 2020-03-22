@@ -7,7 +7,7 @@ function AlertaAglo(){
     const [bairro, setBairro] = useState(" ");
     const [rua, setRua] = useState(" ");
     const [municipio, setMunicipio] = useState(" ");
-
+    
     const handleSubmit = async() => {
         await AsyncStorage.setItem('bairro', bairro)
         const bairro1 = await AsyncStorage.getItem('bairro');
@@ -22,66 +22,100 @@ function AlertaAglo(){
         console.log(municipio1);
     }
 
-        return(
-            <View style = {{
-                flex: 1,
-                justifyContent: 'space-evenly',}}>
-                <Text style={styles.alertaTitle}>Local</Text>
+    const handleClick = async(flag) => {
+        if(flag == 1){
+            this.setState({state:true})
+        }
+        console.log(flag);
+    }
 
+        // if(console.log(bairro1) == null){
+            return(
                 <View style = {{
                     flex: 1,
                     justifyContent: 'space-evenly',}}>
-                <TextInput style={styles.writeBox}
-                    multiline = {true}
-                    placeholder = "Bairro"
-                    placeholderTextColor = "#000"
-                    autoCapitalize = "none"
-                    onChangeText = {(bairro) => setBairro(bairro)}
-                    value={bairro}
-                    />
-                </View>
-                <View style = {{
-                flex: 1,
-                justifyContent: 'space-evenly',}}>
-                <TextInput style={styles.writeBox}
-                    multiline = {true}
-                    placeholder = "Rua"
-                    placeholderTextColor = "#000"
-                    autoCapitalize = "none"
-                    onChangeText = {(rua) => setRua(rua)}
-                    value={rua}
-                    />
-                </View>
-                <View style = {{
-                flex: 1,
-                justifyContent: 'space-evenly',}}>
-                <TextInput style={styles.writeBox}
-                    multiline = {true}
-                    placeholder = "Município"
-                    placeholderTextColor = "#000"
-                    autoCapitalize = "none"
-                    onChangeText = {(municipio) => setMunicipio(municipio)}
-                    value={municipio}
-                    />
-                </View>
-                <Text style={styles.alertaTitle}>Severidade</Text>
+                    <Text style={styles.alertaTitle}>Local</Text>
 
-                <View style = {{
-                flex: 1,
-                justifyContent: 'space-evenly',}}>
-                     <TouchableHighlight
-                        style={{
-                            flex: 1,
-                            padding: 15,
-                            justifyContent: 'flex-end',
-                            margin: 15,
-                            height: 50,
-                            width: 80,
-                            backgroundColor: '#ff0000',
-                            borderRadius: 3,
-                        }}
-                        onPress={console.log('Apertado1')}
-                        >
+                    <View style = {{
+                        flex: 1,
+                        justifyContent: 'space-evenly',}}>
+                    <TextInput style={styles.writeBox}
+                        multiline = {true}
+                        placeholder = "Bairro"
+                        placeholderTextColor = "#000"
+                        autoCapitalize = "none"
+                        onChangeText = {(bairro) => setBairro(bairro)}
+                        value={bairro}
+                        />
+                    </View>
+                    <View style = {{
+                    flex: 1,
+                    justifyContent: 'space-evenly',}}>
+                    <TextInput style={styles.writeBox}
+                        multiline = {true}
+                        placeholder = "Rua"
+                        placeholderTextColor = "#000"
+                        autoCapitalize = "none"
+                        onChangeText = {(rua) => setRua(rua)}
+                        value={rua}
+                        />
+                    </View>
+                    <View style = {{
+                    flex: 1,
+                    justifyContent: 'space-evenly',}}>
+                    <TextInput style={styles.writeBox}
+                        multiline = {true}
+                        placeholder = "Município"
+                        placeholderTextColor = "#000"
+                        autoCapitalize = "none"
+                        onChangeText = {(municipio) => setMunicipio(municipio)}
+                        value={municipio}
+                        />
+                    </View>
+                    <Text style={styles.alertaTitle}>Severidade</Text>
+
+                    <View style = {{
+                    flex: 1,
+                    justifyContent: 'space-evenly',}}>
+                        <TouchableHighlight
+                            style={{
+                                flex: 1,
+                                padding: 15,
+                                justifyContent: 'flex-end',
+                                margin: 15,
+                                height: 50,
+                                width: 80,
+                                backgroundColor: '#ff0000',
+                                borderRadius: 3,
+                            }}
+                            onPress={() => handleClick("clicadoAlta")}
+                            >
+                                <Text style ={{
+                                    fontSize: 14,
+                                    flex: 1,
+                                    padding: 5,
+                                    textAlign: 'center',
+                                    color: 'white',
+                                    fontFamily: 'Roboto',
+                                    fontWeight: 'bold',}}>Alta</Text>
+                        </TouchableHighlight>
+                    </View>
+                    <View style = {{
+                        flex: 1,
+                        justifyContent: 'space-evenly',}}>
+                        <TouchableHighlight
+                            style={{
+                                flex: 1,
+                                padding: 15,
+                                justifyContent: 'flex-end',
+                                margin: 15,
+                                height: 40,
+                                width: 80,
+                                backgroundColor: '#EAD40D',
+                                borderRadius: 3,
+                            }}
+                            onPress={() => handleClick("clicadoMedia")}
+                            >
                             <Text style ={{
                                 fontSize: 14,
                                 flex: 1,
@@ -89,70 +123,48 @@ function AlertaAglo(){
                                 textAlign: 'center',
                                 color: 'white',
                                 fontFamily: 'Roboto',
-                                fontWeight: 'bold',}}>Alta</Text>
-                    </TouchableHighlight>
-                </View>
-                <View style = {{
-                    flex: 1,
-                    justifyContent: 'space-evenly',}}>
-                    <TouchableHighlight
-                        style={{
-                            flex: 1,
-                            padding: 15,
-                            justifyContent: 'flex-end',
-                            margin: 15,
-                            height: 40,
-                            width: 80,
-                            backgroundColor: '#EAD40D',
-                            borderRadius: 3,
-                        }}
-                        onPress={console.log('Apertado2')}
+                                fontWeight: 'bold',}}>Média</Text>
+                        </TouchableHighlight>
+                    </View>
+                    <View style = {{
+                        flex: 1,
+                        justifyContent: 'space-evenly',}}>
+                        <TouchableHighlight
+                            style={{
+                                flex: 1,
+                                padding: 15,
+                                justifyContent: 'flex-end',
+                                margin: 15,
+                                height: 40,
+                                width: 80,
+                                backgroundColor: '#34A100',
+                                borderRadius: 3,
+                            }}
+                            onPress={() => handleClick("clicadoBaixa")}
+                            >
+                            <Text style ={{
+                                fontSize: 14,
+                                flex: 1,
+                                padding: 5,
+                                textAlign: 'center',
+                                color: 'white',
+                                fontFamily: 'Roboto',
+                                fontWeight: 'bold',}}>Baixa</Text>
+                        </TouchableHighlight>
+                    </View>
+                    <TouchableOpacity
+                        style = {styles.submitButton}
+                        onPress = {() => handleSubmit()}
                         >
-                        <Text style ={{
-                            fontSize: 14,
-                            flex: 1,
-                            padding: 5,
-                            textAlign: 'center',
-                            color: 'white',
-                            fontFamily: 'Roboto',
-                            fontWeight: 'bold',}}>Média</Text>
-                    </TouchableHighlight>
+                        <Text style = {styles.buttonText}> Submeter </Text>
+                    </TouchableOpacity>
                 </View>
-                <View style = {{
-                    flex: 1,
-                    justifyContent: 'space-evenly',}}>
-                    <TouchableHighlight
-                        style={{
-                            flex: 1,
-                            padding: 15,
-                            justifyContent: 'flex-end',
-                            margin: 15,
-                            height: 40,
-                            width: 80,
-                            backgroundColor: '#34A100',
-                            borderRadius: 3,
-                        }}
-                        onPress={console.log('Apertado3')}
-                        >
-                        <Text style ={{
-                            fontSize: 14,
-                            flex: 1,
-                            padding: 5,
-                            textAlign: 'center',
-                            color: 'white',
-                            fontFamily: 'Roboto',
-                            fontWeight: 'bold',}}>Baixa</Text>
-                    </TouchableHighlight>
-                </View>
-                <TouchableOpacity
-                    style = {styles.submitButton}
-                    onPress = {() => handleSubmit()}
-                    >
-                    <Text style = {styles.buttonText}> Submeter </Text>
-                </TouchableOpacity>
-            </View>
-        )
-
+            )
+        // } else{
+        //     <view>
+        //         <Text>ex</Text>
+        //     </view>
+        // }
 }
 
 export default AlertaAglo;
