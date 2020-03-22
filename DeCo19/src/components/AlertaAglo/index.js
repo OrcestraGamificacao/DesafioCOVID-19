@@ -1,17 +1,27 @@
-import React, { Component } from 'react';
-import {View, TouchableOpacity, StyleSheet, Text, TextInput, Button, Alert, AsyncStorage} from 'react-native';
+import React, { Component, useState } from 'react';
+import {View, TouchableOpacity, Text, TextInput, AsyncStorage} from 'react-native';
 import styles from './style';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
-class AlertaAglo extends Component {
-    state = {
-        'bairro': '',
-        'rua': '',
-        'municipio': '',
+function AlertaAglo(){
+    const [bairro, setBairro] = useState(" ");
+    const [rua, setRua] = useState(" ");
+    const [municipio, setMunicipio] = useState(" ");
+
+    const handleSubmit = async() => {
+        await AsyncStorage.setItem('bairro', bairro)
+        const bairro1 = await AsyncStorage.getItem('bairro');
+        console.log(bairro1);
+
+        await AsyncStorage.setItem('rua', rua)
+        const rua1 = await AsyncStorage.getItem('rua');
+        console.log(rua1);
+
+        await AsyncStorage.setItem('municipio', municipio)
+        const municipio1 = await AsyncStorage.getItem('municipio');
+        console.log(municipio1);
     }
 
-
-    render(){
         return(
             <View style = {{
                 flex: 1,
@@ -26,7 +36,9 @@ class AlertaAglo extends Component {
                     placeholder = "Bairro"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
-                    onChangeText = { (text) => this._addLocal}/>
+                    onChangeText = {(bairro) => setBairro(bairro)}
+                    value={bairro}
+                    />
                 </View>
                 <View style = {{
                 flex: 1,
@@ -36,7 +48,9 @@ class AlertaAglo extends Component {
                     placeholder = "Rua"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
-                    onChangeText = {(text) => this._addLocal}/>
+                    onChangeText = {(rua) => setRua(rua)}
+                    value={rua}
+                    />
                 </View>
                 <View style = {{
                 flex: 1,
@@ -46,14 +60,16 @@ class AlertaAglo extends Component {
                     placeholder = "Município"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
-                    onChangeText = {(text) => this._addLocal}/>
+                    onChangeText = {(municipio) => setMunicipio(municipio)}
+                    value={municipio}
+                    />
                 </View>
                 <Text style={styles.alertaTitle}>Severidade</Text>
 
                 <View style = {{
                 flex: 1,
                 justifyContent: 'space-evenly',}}>
-                    <TouchableHighlight
+                     <TouchableHighlight
                         style={{
                             flex: 1,
                             padding: 15,
@@ -130,14 +146,13 @@ class AlertaAglo extends Component {
                 </View>
                 <TouchableOpacity
                     style = {styles.submitButton}
-                    onPress = {
-                    () => this.state.setBairro, this.state.setRua,  this.state.setMunicipio
-                }>
+                    onPress = {() => handleSubmit()}
+                    >
                     <Text style = {styles.buttonText}> Submeter </Text>
                 </TouchableOpacity>
             </View>
         )
-    }
+
 }
 
 export default AlertaAglo;
