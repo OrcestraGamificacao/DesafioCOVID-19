@@ -10,9 +10,7 @@ const styles = StyleSheet.create({
    smallMarker: {
       width: 16,
       height: 16,
-      backgroundColor: "#34A100",
       borderRadius: 8,
-      borderColor: 'rgba(101, 64, 245, .1)',
       borderWidth: 2,
       borderColor: 'white'
    }
