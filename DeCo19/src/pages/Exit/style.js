@@ -13,27 +13,25 @@ const styles  = StyleSheet.create({
         fontSize: 26,
         top: normalize(10),
     },
-    Text: {
+    subTitleDestino: {
         fontFamily: "Roboto",
         fontSize: 18,
         top: normalize(40),
     },
-    ArrowImg: {
-        top: normalize(0),
+    viewArrow: {
+        top: normalize(10),
         left: normalize(-5),
+        width: normalize(30),
     },
-    testeView: {
+    viewAtividades: {
         top: normalize(30),
-        borderStyle: "solid",
-        height: normalize(70),
         width: normalize(200),
-        borderRadius: 10,
     },  
     buttonContainer: {
         height: normalize(50),
         width:normalize(335),
         left: normalize(5),
-        top: normalize(350),
+        top: normalize(345),
         backgroundColor: "#005BAB",
         borderRadius: normalize(5)
     },
@@ -43,7 +41,11 @@ const styles  = StyleSheet.create({
         color:"white",
         textAlign: "center",
         marginTop: normalize(13),
-    }
+    },
+    perguntaSair: {
+        fontSize: 17,
+        top: normalize(45),
+    },
 });
 
 export default styles;
