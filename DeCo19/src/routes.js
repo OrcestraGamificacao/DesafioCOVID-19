@@ -5,6 +5,9 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import {createStackNavigator } from '@react-navigation/stack';
 import { SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import Main from './pages/Main';
+
+import Exit from './pages/Exit';
+
 import Challenge from './pages/challenge';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -12,6 +15,7 @@ const Stack = createStackNavigator();
 
 const Routes = () => (
    <NavigationContainer>
+
      <StatusBar barStyle="dark-content"/>
       <Tab.Navigator
         activeColor="#005BAB"
@@ -48,6 +52,7 @@ const Routes = () => (
           )
         }}
       />
+
       </Tab.Navigator>
    </NavigationContainer>
 );
