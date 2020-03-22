@@ -6,6 +6,7 @@ import {createStackNavigator } from '@react-navigation/stack';
 import { SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import Main from './pages/Main';
 import Challenge from './pages/challenge';
+import Progress from './pages/Progress';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -40,6 +41,12 @@ const Routes = () => (
             <MaterialIcons name="chat-bubble-outline" size={24} color={color}/>
           )
         }}
+      />
+      <Tab.Screen name="Progress" component={Progress}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="user-circle-o" size={24} color={color}/>
+          )}}
       />
       <Tab.Screen name="Account" component={Main}
         options={{
