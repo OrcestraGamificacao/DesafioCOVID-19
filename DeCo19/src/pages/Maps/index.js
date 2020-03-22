@@ -52,6 +52,9 @@ function Maps() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}> Mapa de fuxo de pessoas </Text>
+      </View>
       <MapView
         style={styles.map}
         region={currentRegion}
