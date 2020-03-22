@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
-
+import { View, Text, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 import styles from './styles';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+
+const SmallGroup = ({location}) => {
+  return (
+    <Marker coordinate={{latitude: location.latitude, longitude: location.longitude}} >
+      <View style={styles.smallMarker}/>
+    </Marker>
+  )
+}
 
 function Maps() {
   const [currentRegion, setCurrentRegion] = useState(null);
@@ -33,7 +41,11 @@ function Maps() {
       <MapView
         style={styles.map}
         region={currentRegion}
-      />
+        showsUserLocation
+      >
+        <SmallGroup location={currentRegion} />
+      
+      </MapView>
     </View>
   );
 }
