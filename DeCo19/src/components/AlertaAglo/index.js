@@ -1,64 +1,58 @@
 import React, { Component } from 'react';
-import {View, TouchableOpacity, StyleSheet, Text, TextInput, Button, Alert} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Text, TextInput, Button, Alert, AsyncStorage} from 'react-native';
 import styles from './style';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 class AlertaAglo extends Component {
     state = {
-        bairro: '',
-        rua: '',
-        municipio: '',
+        'bairro': '',
+        'rua': '',
+        'municipio': '',
     }
-    handlebairro = (text) =>{
-        this.setState({ bairro: text })
-    }
-    handlerua = (text) =>{
-        this.setState({ rua: text })
-    }
-    handlemunicipio = (text) =>{
-        this.setState({ municipio: text })
-    }
+
+
     render(){
         return(
             <View style = {{
                 flex: 1,
-                justifyContent: 'space-around',}}>
+                justifyContent: 'space-evenly',}}>
                 <Text style={styles.alertaTitle}>Local</Text>
-                
-                <View style = {styles.container}>
+
+                <View style = {{
+                    flex: 1,
+                    justifyContent: 'space-evenly',}}>
                 <TextInput style={styles.writeBox}
                     multiline = {true}
                     placeholder = "Bairro"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
-                    onChangeText = {this.handlebairro}/>
+                    onChangeText = { (text) => this._addLocal}/>
                 </View>
                 <View style = {{
                 flex: 1,
-                justifyContent: 'space-around',}}>
+                justifyContent: 'space-evenly',}}>
                 <TextInput style={styles.writeBox}
                     multiline = {true}
                     placeholder = "Rua"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
-                    onChangeText = {this.handlerua}/>
+                    onChangeText = {(text) => this._addLocal}/>
                 </View>
                 <View style = {{
                 flex: 1,
-                justifyContent: 'space-around',}}>
+                justifyContent: 'space-evenly',}}>
                 <TextInput style={styles.writeBox}
                     multiline = {true}
                     placeholder = "Município"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
-                    onChangeText = {this.handlemunicipio}/>
+                    onChangeText = {(text) => this._addLocal}/>
                 </View>
-
                 <Text style={styles.alertaTitle}>Severidade</Text>
 
                 <View style = {{
                 flex: 1,
-                justifyContent: 'space-around',}}>
+                justifyContent: 'space-evenly',}}>
                     <TouchableHighlight
                         style={{
                             flex: 1,
@@ -83,8 +77,8 @@ class AlertaAglo extends Component {
                     </TouchableHighlight>
                 </View>
                 <View style = {{
-                flex: 1,
-                justifyContent: 'space-around',}}>
+                    flex: 1,
+                    justifyContent: 'space-evenly',}}>
                     <TouchableHighlight
                         style={{
                             flex: 1,
@@ -97,7 +91,7 @@ class AlertaAglo extends Component {
                             borderRadius: 3,
                         }}
                         onPress={console.log('Apertado2')}
-                    >
+                        >
                         <Text style ={{
                             fontSize: 14,
                             flex: 1,
@@ -109,8 +103,8 @@ class AlertaAglo extends Component {
                     </TouchableHighlight>
                 </View>
                 <View style = {{
-                flex: 1,
-                justifyContent: 'space-around',}}>
+                    flex: 1,
+                    justifyContent: 'space-evenly',}}>
                     <TouchableHighlight
                         style={{
                             flex: 1,
@@ -123,7 +117,7 @@ class AlertaAglo extends Component {
                             borderRadius: 3,
                         }}
                         onPress={console.log('Apertado3')}
-                    >
+                        >
                         <Text style ={{
                             fontSize: 14,
                             flex: 1,
@@ -137,8 +131,8 @@ class AlertaAglo extends Component {
                 <TouchableOpacity
                     style = {styles.submitButton}
                     onPress = {
-                    () => this.login(this.state.bairro, this.state.rua. this.state.municipio)
-                    }>
+                    () => this.state.setBairro, this.state.setRua,  this.state.setMunicipio
+                }>
                     <Text style = {styles.buttonText}> Submeter </Text>
                 </TouchableOpacity>
             </View>
