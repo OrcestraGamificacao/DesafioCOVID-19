@@ -2,7 +2,7 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
 import styles from './style';
-import AlertaAglo from '../../components/AlertaAgro'
+import AlertaAglo from '../../components/AlertaAglo'
 
 function Alerta(){
     return(
