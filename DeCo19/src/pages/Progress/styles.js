@@ -5,7 +5,9 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       justifyContent: 'flex-start',
-      paddingLeft: '5%',
+      alignItems: 'center',
+      paddingLeft: '4%',
+      paddingRight: '4%',
    },
 
    title: {
@@ -14,21 +16,6 @@ const styles = StyleSheet.create({
       fontSize: 29
    },
 
-   virusTitle: {
-      fontSize: 16,
-      paddingTop: '10%',
-   },
-
-   infoInfected: {
-      fontSize: 16,
-      fontStyle: 'italic',
-      textAlign: 'right',
-      paddingRight: '2%',
-   },
-
-   image: {
-      alignSelf: 'center',
-   }
 });
 
 export default styles;
