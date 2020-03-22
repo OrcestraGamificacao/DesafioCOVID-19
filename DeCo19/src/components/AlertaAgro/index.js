@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {View, TouchableOpacity, StyleSheet, Text, TextInput} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Text, TextInput, Button, Alert} from 'react-native';
 import styles from './style';
 
-class AlertaAgro extends Component {
+class AlertaAglo extends Component {
     state = {
         bairro: '',
         rua: '',
@@ -22,26 +22,45 @@ class AlertaAgro extends Component {
             <View style = {styles.container}>
                 <Text style={styles.alertaTitle}>Local</Text>
                 <TextInput style={styles.writeBox}
-                    underlineColorAndroid = "transparent"
+                    multiline = {true}
                     placeholder = "Bairro"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
                     onChangeText = {this.handlebairro}/>
                 <TextInput style={styles.writeBox}
-                    underlineColorAndroid = "transparent"
+                    multiline = {true}
                     placeholder = "Rua"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
                     onChangeText = {this.handlerua}/>
                 <TextInput style={styles.writeBox}
-                    underlineColorAndroid = "transparent"
+                    multiline = {true}
                     placeholder = "Município"
                     placeholderTextColor = "#000"
                     autoCapitalize = "none"
                     onChangeText = {this.handlemunicipio}/>
+
+                <Text style={styles.alertaTitle}>Severidade</Text>
+                <TouchableOpacity
+                    style = {styles.buttonBox}
+                    onPress = {
+                    () => console.log('Apertado')
+                    }>
+                    <Text style = {styles.buttonText}> Alta </Text>
+                </TouchableOpacity>
+
+                
+                
+                <TouchableOpacity
+                    style = {styles.submitButton}
+                    onPress = {
+                    () => this.login(this.state.bairro, this.state.rua. this.state.municipio)
+                    }>
+                    <Text style = {styles.buttonText}> Submeter </Text>
+                </TouchableOpacity>
             </View>
         )
     }
 }
 
-export default AlertaAgro;
+export default AlertaAglo;
