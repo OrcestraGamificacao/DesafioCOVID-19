@@ -6,7 +6,9 @@ const styles = StyleSheet.create({
       alignSelf: 'flex-start',
       fontSize: 16,
       paddingTop: '10%',
+      paddingBottom: '5%',
       fontWeight: 'bold',
+      width: '100%',
    },
 
    infoInfected: {
