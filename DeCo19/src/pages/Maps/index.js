@@ -32,9 +32,8 @@ function Maps() {
   const [currentRegion, setCurrentRegion] = useState(null);
   const [mapList, setMapList] = useState(MAPS);
 
-  function openModal () {
-    
-    (e) => {
+  function openModal (e) {
+
         setMapList({ markers: [...mapList.markers, { 
         aglomeration_level: 0,
         aglomeration_size: 100,
@@ -49,7 +48,7 @@ function Maps() {
 
         }]
       })
-    }
+
   }
 
   useEffect(() => {
@@ -81,7 +80,7 @@ function Maps() {
           style={styles.map}
           region={currentRegion}
           showsUserLocation
-          onPress = {() => openModal()}
+          onPress = {(e) => openModal(e)}
         >
           {
             mapList.markers.map((marker, id) => {
@@ -92,11 +91,11 @@ function Maps() {
           }
         </MapView>
         <TouchableOpacity style={{
-          position: "absolute", left: Dimensions.get('screen').width -90,top: Dimensions.get('screen').height - 250,
+          position: "absolute", left: Dimensions.get('screen').width -70,top: Dimensions.get('screen').height - 250,
           backgroundColor: '#ffffff', borderRadius: 100,
           padding: 10
         }}>
-          <MaterialIcons name="add-location" size={50} color="rgba(255, 0, 0, 1)" />
+          <MaterialIcons name="add-location" size={40} color="rgba(255, 0, 0, 1)" />
         </TouchableOpacity>
       </View>
   );

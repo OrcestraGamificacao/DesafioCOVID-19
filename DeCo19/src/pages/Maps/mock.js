@@ -5,8 +5,8 @@ export const MAPS = {
             aglomeration_size: 100,
             location: {
                 coordinates: [
-                    -22.9099,
-                    -47.0562
+                    -16.004513,
+                    -48.070734
                 ]
             },
             fillColor: 'rgba(0, 255, 0, 0.2)',
