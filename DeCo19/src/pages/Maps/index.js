@@ -1,74 +1,82 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
-import MapView, { Marker, Circle } from 'react-native-maps';
+import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import { MAPS } from './mock';
-
-const SmallGroup = ({marker}) => {
-  const coordinate = {
-    latitude: marker?.location?.coordinates[0] || 0,
-    longitude: marker?.location?.coordinates[1] || 0,
-  }
-
-  return (
-    <View>
-      <Marker coordinate={coordinate} >
-        <View style={{...styles.smallMarker, backgroundColor: MAPS.strokeColors[marker?.aglomeration_level || 0]}}/>
-      </Marker>
-      <Circle
-        center={coordinate}
-        radius={marker?.aglomeration_size || 0}
-        fillColor={MAPS.fillColors[marker?.aglomeration_level || 0]}
-        strokeColor={MAPS.strokeColors[marker?.aglomeration_level || 0]}
-      />
-    </View>
-  )
-}
+import GroupMarker from '../../components/GroupMarker';
 
 function Maps() {
   const [currentRegion, setCurrentRegion] = useState(null);
+  const [mapList, setMapList] = useState(MAPS);
+  const [isPlaceable, setPlaceable] = useState(false);
 
   useEffect(() => {
-    async function userPosition() {
-      const { granted } = await Location.requestPermissionsAsync();
+    const { granted } =  Location.requestPermissionsAsync();
 
-      if(granted) {
-        const { coords } = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
-        const { latitude, longitude } = coords;
-        
-        setCurrentRegion({
-          latitude: latitude,
-          longitude: longitude,
-          latitudeDelta: 0.006,
-          longitudeDelta: 0.006,
-        })
-      }
+    if(granted) {
+      const { coords } = Location.getCurrentPositionAsync({enableHighAccuracy: true});
+      const { latitude, longitude } = coords;
+      
+      setCurrentRegion({
+        latitude: latitude,
+        longitude: longitude,
+        latitudeDelta: 0.006,
+        longitudeDelta: 0.006,
+      })
     }
-    
-    userPosition();
   }, []);
 
+
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}> Mapa de fuxo de pessoas </Text>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}> Mapa de fuxo de pessoas </Text>
+        </View>
+        <MapView
+          style={styles.map}
+          region={currentRegion}
+          showsUserLocation
+          onPress={e => {
+            if(isPlaceable)
+            {
+              setMapList({ agglomerations: [...mapList.agglomerations,
+                {
+                  __v: 0,
+                  _id: "5e78eeb1ef76bb001d70c159",
+                  active: true,
+                  agglomeration_level: 1,
+                  description: "",
+                  end_timestamp: "2020-03-23T18:00:29.716Z",
+                  image_url: "",
+                  location: {
+                    _id: "5e78eeb1ef76bb001d70c15a",
+                    coordinates: [
+                      e.nativeEvent.coordinate.latitude,
+                      e.nativeEvent.coordinate.longitude
+                    ],
+                    type: "Point"
+                  },
+                  location_name: "",
+                  start_timestamp: "2020-03-23T17:15:29.722Z",
+                  votes_positive: 0,
+                  votes_negative: 0,
+              }]});
+              setPlaceable(false);
+            }
+          }}
+        >
+          {mapList.agglomerations.map((marker, id) => <GroupMarker key={id.toString()} level={marker.agglomeration_level} marker={marker}/>)}
+        </MapView>
+        <TouchableOpacity style={{
+          position: "absolute", left: Dimensions.get('screen').width -90,top: Dimensions.get('screen').height - 250,
+          backgroundColor: '#ffffff', borderRadius: 100,
+          padding: 10
+        }}
+          onPress={() => setPlaceable(true)}
+        ><MaterialIcons name="add-location" size={50} color="rgba(255, 0, 0, 1)" /></TouchableOpacity>
       </View>
-      <MapView
-        style={styles.map}
-        region={currentRegion}
-        showsUserLocation
-      >
-        {
-          MAPS.markers.map((marker, id) => {
-            return(
-              <SmallGroup marker={marker} key={id.toString()} />
-            )
-          })
-        }
-      </MapView>
-    </View>
   );
 }
 
