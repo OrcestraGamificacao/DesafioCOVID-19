@@ -9,6 +9,8 @@ import Maps from './pages/Maps';
 import Exit from './pages/Exit';
 import Challenge from './pages/challenge';
 import Progress from './pages/Progress';
+//import Challenge from './pages/challenge';
+import Swiper from './components/Card/index'
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -75,7 +77,7 @@ const ChallengeStack = () => (
       fontWeight: "bold"
     }
   }}>
-    <Stack.Screen name="Desafios e Pontuações" component={Challenge}></Stack.Screen>
+    <Stack.Screen name="Desafios e Pontuações" component={Swiper}></Stack.Screen>
   </Stack.Navigator>
 );
 
