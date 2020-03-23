@@ -16,55 +16,48 @@ const Stack = createStackNavigator();
 
 const Routes = () => (
    <NavigationContainer>
-      {/* <Tab.Navigator>
-      <Tab.Screen name="Covid" component={Alerta}></Tab.Screen> */}
-
-
-      
-
-     <StatusBar barStyle="dark-content"/>
+      <StatusBar barStyle="dark-content"/>
       <Tab.Navigator
         activeColor="#005BAB"
         barStyle={{backgroundColor: '#fff'}}
         labeled={false}
       >
-      <Tab.Screen name="Covid" component={Maps}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="map-marker-outline" size={24} color={color}/>
-          )
-        }}
-      ></Tab.Screen>
-      <Tab.Screen
-        name="Challenger"
-        component={ChallengeStack}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <SimpleLineIcons name="fire" size={24} color={color}/>
-          )
-        }}
-      ></Tab.Screen>
-      <Tab.Screen name="Chat" component={Main}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <MaterialIcons name="chat-bubble-outline" size={24} color={color}/>
-          )
-        }}
-      />
-      <Tab.Screen name="Progress" component={Progress}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Entypo name="area-graph" size={24} color={color}/>
-          )}}
-      />
-      <Tab.Screen name="Account" component={Main}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="user-circle-o" size={24} color={color}/>
-          )
-        }}
-      />
-
+        <Tab.Screen name="Covid" component={Maps}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="map-marker-outline" size={24} color={color}/>
+            )
+          }}
+        ></Tab.Screen>
+        <Tab.Screen
+          name="Challenger"
+          component={ChallengeStack}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <SimpleLineIcons name="fire" size={24} color={color}/>
+            )
+          }}
+        ></Tab.Screen>
+        <Tab.Screen name="Chat" component={Main}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialIcons name="chat-bubble-outline" size={24} color={color}/>
+            )
+          }}
+        />
+        <Tab.Screen name="Progress" component={Progress}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Entypo name="area-graph" size={24} color={color}/>
+            )}}
+        />
+        <Tab.Screen name="Account" component={Main}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <FontAwesome name="user-circle-o" size={24} color={color}/>
+            )
+          }}
+        />
       </Tab.Navigator>
    </NavigationContainer>
 );
