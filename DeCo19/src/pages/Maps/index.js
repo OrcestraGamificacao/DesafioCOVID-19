@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, View, Text, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { Modal, View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
 import MapView, { Marker, Circle } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { MAPS } from './mock';
-import AlertaAglo from '../../components/AlertaAglo';
-
+import Alerta from '../Alerta';
 
 const SmallGroup = ({marker}) => {
   const coordinate = {
@@ -32,9 +31,9 @@ const SmallGroup = ({marker}) => {
 function Maps() {
   const [currentRegion, setCurrentRegion] = useState(null);
   const [mapList, setMapList] = useState(MAPS);
-  const [isModalVisible, setModalVisible] = useState(false);
 
   function openModal () {
+    
     (e) => {
         setMapList({ markers: [...mapList.markers, { 
         aglomeration_level: 0,
@@ -74,32 +73,32 @@ function Maps() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}> Mapa de fuxo de pessoas </Text>
-      </View>
-      <MapView
-        style={styles.map}
-        region={currentRegion}
-        showsUserLocation
-        onPress = {() => openModal()}
-      >
-        {
-          mapList.markers.map((marker, id) => {
-            return(
-              <SmallGroup marker={marker} key={id.toString()} />
-            )
-          })
-        }
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={isModalVisible}
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}> Mapa de fuxo de pessoas </Text>
+        </View>
+        <MapView
+          style={styles.map}
+          region={currentRegion}
+          showsUserLocation
+          onPress = {() => openModal()}
         >
-          <AlertaAglo/>
-        </Modal>
-      </MapView>
-    </View>
+          {
+            mapList.markers.map((marker, id) => {
+              return(
+                <SmallGroup marker={marker} key={id.toString()} />
+              )
+            })
+          }
+        </MapView>
+        <TouchableOpacity style={{
+          position: "absolute", left: Dimensions.get('screen').width -90,top: Dimensions.get('screen').height - 250,
+          backgroundColor: '#ffffff', borderRadius: 100,
+          padding: 10
+        }}>
+          <MaterialIcons name="add-location" size={50} color="rgba(255, 0, 0, 1)" />
+        </TouchableOpacity>
+      </View>
   );
 }
 

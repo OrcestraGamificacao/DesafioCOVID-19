@@ -2,8 +2,8 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import {createStackNavigator } from '@react-navigation/stack';
-import {Entypo, SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
+import { createStackNavigator } from '@react-navigation/stack';
+import { Entypo, SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import Main from './pages/Main';
 import Alerta from './pages/Alerta';
 import Maps from './pages/Maps';
