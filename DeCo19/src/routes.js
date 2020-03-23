@@ -4,13 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
-  Entypo,
-  SimpleLineIcons,
-  MaterialCommunityIcons,
-  MaterialIcons,
-  FontAwesome,
-  EvilIcons, 
-  AntDesign
+  Entypo, SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome, EvilIcons, AntDesign
 } from "@expo/vector-icons";
 import Main from "./pages/Main";
 import Ranking from "./pages/challenge/Ranking";
