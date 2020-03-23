@@ -2,7 +2,7 @@ import React from 'react';
 import { View , Text, ScrollView, SafeAreaView, Image} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import styles from './styles';
-import {MaterialCommunityIcons} from '@expo/vector-icons'
+import {MaterialCommunityIcons, EvilIcons} from '@expo/vector-icons'
 
 export default function challenge() {
   return (
@@ -23,8 +23,9 @@ export default function challenge() {
                 {"\n"}- Tarde (lembrete): 25 pts;
                 {"\n"}- Noite (interação): 20 pts;
                 </Text>
-            <View style={styles.challengerContainer}>
-              <View style={styles.challengerCard}>
+                
+                <View style={styles.challengerContainer}>
+                <View style={styles.challengerCard}>
                 <Image style={styles.imageChallengerCard} source={require('../../assets/image13.png')}></Image>
                 <View style={styles.countChallengerContainer}>
                   <RectButton><MaterialCommunityIcons name="plus" size={38} color="#005BAB"></MaterialCommunityIcons></RectButton>
@@ -45,7 +46,7 @@ export default function challenge() {
                   <Text style={styles.countChallenger}>9</Text>
                 </View>
               </View>
-            </View>
+              </View>
           </View>
         </ScrollView>
       </SafeAreaView>
