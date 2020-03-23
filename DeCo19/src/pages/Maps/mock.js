@@ -1,50 +1,45 @@
 export const MAPS = {
-    markers: [
-        {
-            aglomeration_level: 0,
-            aglomeration_size: 100,
-            location: {
-                coordinates: [
-                    -16.004513,
-                    -48.070734
-                ]
-            },
-            fillColor: 'rgba(0, 255, 0, 0.2)',
-            strokeColor: 'rgba(0, 255, 0, 1)',
+    agglomerations: [
+    {
+        __v: 0,
+        _id: "5e78eeb1ef76bb001d70c159",
+        active: true,
+        agglomeration_level: 1,
+        description: "unb",
+        end_timestamp: "2020-03-23T18:00:29.716Z",
+        image_url: "",
+        location: {
+            _id: "5e78eeb1ef76bb001d70c15a",
+            coordinates: [
+                -48.0768634,
+                -16.003195
+            ],
+            type: "Point"
         },
-        {
-            aglomeration_level: 1,
-            aglomeration_size: 70,
-            location: {
-                coordinates: [
-                    -22.9102175,
-                    -47.0603536
-                ]
-            },
-            fillColor: 'rgba(255, 0, 0, 0.2)',
-            strokeColor: 'rgba(255, 0, 0, 1)',
+        location_name: "lago sul",
+        start_timestamp: "2020-03-23T17:15:29.722Z",
+        votes_positive: 0,
+        votes_negative: 0,
+    },
+    {
+        __v: 0,
+        _id: "5e78eeb1ef76bb001d70c159",
+        active: true,
+        agglomeration_level: 2,
+        description: "unb",
+        end_timestamp: "2020-03-23T18:00:29.716Z",
+        image_url: "",
+        location: {
+            _id: "5e78eeb1ef76bb001d70c15a",
+            coordinates: [
+                -48.044,
+                -15.989
+            ],
+            type: "Point"
         },
-        {
-            aglomeration_level: 2,
-            aglomeration_size: 85,
-            location: {
-                coordinates: [
-                    -22.9126474,
-                    -47.058118
-                ]
-            },
-            fillColor: 'rgba(0, 0, 255, 0.2)',
-            strokeColor: 'rgba(0, 0, 255, 1)',
-        },
-    ],
-    fillColors: [
-        'rgba(52, 162, 0, 0.1)',
-        'rgba(234, 212, 13, 0.1)',
-        'rgba(255, 0, 0, 0.1)',
-    ],
-    strokeColors: [
-        'rgba(52, 162, 0, 0.6)',
-        'rgba(234, 212, 13, 0.6)',
-        'rgba(255, 0, 0, 0.6)',
-    ]
-}
+        location_name: "fga",
+        start_timestamp: "2020-03-23T17:15:29.722Z",
+        votes_positive: 0,
+        votes_negative: 0,
+    },
+]};
