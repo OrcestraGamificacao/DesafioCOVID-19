@@ -4,10 +4,11 @@ import styles from './style';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 function AlertaAglo(){
+
     const [bairro, setBairro] = useState(" ");
     const [rua, setRua] = useState(" ");
     const [municipio, setMunicipio] = useState(" ");
-    
+
     const handleSubmit = async() => {
         await AsyncStorage.setItem('bairro', bairro)
         const bairro1 = await AsyncStorage.getItem('bairro');
@@ -28,8 +29,6 @@ function AlertaAglo(){
         }
         console.log(flag);
     }
-
-        // if(console.log(bairro1) == null){
             return(
                 <View style = {{
                     flex: 1,
@@ -45,7 +44,6 @@ function AlertaAglo(){
                         placeholderTextColor = "#000"
                         autoCapitalize = "none"
                         onChangeText = {(bairro) => setBairro(bairro)}
-                        value={bairro}
                         />
                     </View>
                     <View style = {{
@@ -57,7 +55,6 @@ function AlertaAglo(){
                         placeholderTextColor = "#000"
                         autoCapitalize = "none"
                         onChangeText = {(rua) => setRua(rua)}
-                        value={rua}
                         />
                     </View>
                     <View style = {{
@@ -69,7 +66,6 @@ function AlertaAglo(){
                         placeholderTextColor = "#000"
                         autoCapitalize = "none"
                         onChangeText = {(municipio) => setMunicipio(municipio)}
-                        value={municipio}
                         />
                     </View>
                     <Text style={styles.alertaTitle}>Severidade</Text>
@@ -152,19 +148,16 @@ function AlertaAglo(){
                                 fontWeight: 'bold',}}>Baixa</Text>
                         </TouchableHighlight>
                     </View>
-                    <TouchableOpacity
-                        style = {styles.submitButton}
-                        onPress = {() => handleSubmit()}
-                        >
-                        <Text style = {styles.buttonText}> Submeter </Text>
-                    </TouchableOpacity>
+                    <View>
+                        <TouchableOpacity
+                            style = {styles.submitButton}
+                            onPress = {() => handleSubmit()}
+                            >
+                            <Text style = {styles.buttonText}> Submeter </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             )
-        // } else{
-        //     <view>
-        //         <Text>ex</Text>
-        //     </view>
-        // }
 }
 
 export default AlertaAglo;
