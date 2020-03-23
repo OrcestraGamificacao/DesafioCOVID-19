@@ -61,9 +61,9 @@ function Maps() {
         showsUserLocation
       >
         {
-          MAPS.markers.map((marker) => {
+          MAPS.markers.map((marker, id) => {
             return(
-              <SmallGroup marker={marker} />
+              <SmallGroup marker={marker} key={id.toString()} />
             )
           })
         }
