@@ -3,12 +3,13 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import {createStackNavigator } from '@react-navigation/stack';
-import { SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
+import {Entypo, SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import Main from './pages/Main';
 
 import Exit from './pages/Exit';
 
 import Challenge from './pages/challenge';
+import Progress from './pages/Progress';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -44,6 +45,12 @@ const Routes = () => (
             <MaterialIcons name="chat-bubble-outline" size={24} color={color}/>
           )
         }}
+      />
+      <Tab.Screen name="Progress" component={Progress}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Entypo name="area-graph" size={24} color={color}/>
+          )}}
       />
       <Tab.Screen name="Account" component={Main}
         options={{
