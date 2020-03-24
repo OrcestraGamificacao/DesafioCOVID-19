@@ -7,6 +7,7 @@ import {
   Entypo, SimpleLineIcons, MaterialCommunityIcons, MaterialIcons, FontAwesome, EvilIcons, AntDesign
 } from "@expo/vector-icons";
 import Main from "./pages/Main";
+import Exit from './pages/Exit';
 import Ranking from "./pages/challenge/Ranking";
 import Maps from './pages/Maps';
 import Progress from './pages/Progress';
@@ -54,10 +55,10 @@ const Routes = () => (
               <Entypo name="area-graph" size={24} color={color}/>
             )}}
         />
-        <Tab.Screen name="Account" component={Main}
+        <Tab.Screen name="Account" component={Exit}
           options={{
             tabBarIcon: ({ color }) => (
-              <FontAwesome name="user-circle-o" size={24} color={color}/>
+              <FontAwesome name="arrow-right" size={24} color={color}/>
             )
           }}
         />
